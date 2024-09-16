@@ -1,95 +1,86 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+import { Container, Grid, Button } from "@mui/material";
+import ArticleCard from "@/component/ArticleCard";
+import Link from "next/link";
+
+const Home=()=> {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main>
+         <Container maxWidth="lg">
+        <Grid container spacing={4} mt={4}>
+          <Grid md={6} xs={12}>
+            <h2>مقاله‌ها</h2>
+          </Grid>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Grid
+            md={6}
+            sx={{
+              display: { xs: "none", sm: "none", md: "flex" },
+              justifyContent: "end",
+              alignItems: "center",
+              paddingLeft: "32px",
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <Link href="/">نمایش همه</Link>
+          </Grid>
+
+          {/* Example article cards */}
+          <Grid item xs={12} sm={6} md={3}>
+            <ArticleCard
+              title="راهنمای دریافت معرفی‌نامه"
+              description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.  "
+              imageUrl="/assets/images/articles/1.webp"
+              altText="مقاله"
+              date="5 دقیقه"
+              readMoreUrl="/articles/1"
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <ArticleCard
+              title="راهنمای دریافت معرفی‌نامه"
+              description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.  "
+              imageUrl="/assets/images/articles/2.webp"
+              altText="مقاله"
+              date="5 دقیقه"
+              readMoreUrl="/articles/2"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <ArticleCard
+              title="راهنمای دریافت معرفی‌نامه"
+              description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.  "
+              imageUrl="/assets/images/articles/3.webp"
+              altText="مقاله"
+              date="5 دقیقه"
+              readMoreUrl="/articles/3"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <ArticleCard
+              title="راهنمای دریافت معرفی‌نامه"
+              description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.  "
+              imageUrl="/assets/images/articles/4.webp"
+              altText="مقاله"
+              date="5 دقیقه"
+              readMoreUrl="/articles/4"
+            />
+          </Grid>
+          <Grid
+            xs={12}
+            mt={4}
+            sx={{
+              display: { xs: "flex", md: "none" },
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <Button variant="contained">بیشتر</Button>
+          </Grid>
+        </Grid>
+      </Container>
+    </main>
   );
 }
+export default Home;
